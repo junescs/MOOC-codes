@@ -1,3 +1,8 @@
+//coding practice from CS50_2018 on edX
+//to decipher a bmp covered by red noise to find out the clue
+//by filtering out the red noise
+//have to make sure it is a 24-bit uncompressed BMP 4.0
+
 // Copies a BMP file
 
 #include <stdio.h>
@@ -81,7 +86,7 @@ int main(int argc, char *argv[])
                 triple.rgbtGreen = 0xFF;
             }
 
-            // It is hard to read a cyan image, so change it into black for legibility(Optional)
+            // It is hard to read a cyan image, so change it into black for legibility
             if ((triple.rgbtBlue & triple.rgbtGreen & triple.rgbtRed) != 0xFF)
             {
                 triple.rgbtBlue = 0x00;
@@ -96,7 +101,7 @@ int main(int argc, char *argv[])
         // skip over padding, if any
         fseek(inptr, padding, SEEK_CUR);
 
-        // then add it back (to demonstrate how)
+        // then add it back 
         for (int k = 0; k < padding; k++)
         {
             fputc(0x00, outptr);
